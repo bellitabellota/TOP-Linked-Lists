@@ -8,7 +8,6 @@ class LinkedList
   end
 
   def at(index)
-
     node_at_index = head
     i = 1
 
@@ -16,9 +15,23 @@ class LinkedList
       node_at_index = node_at_index.next_node
       i += 1
     end
-    node_at_index
 
+    node_at_index
   end
+
+  def pop
+    if tail.nil?
+      puts "Cannot remove a node from an emtpy list"
+    else
+      item_to_remove = self.at(size)
+      self.at(size - 1).next_node = nil
+      self.tail = self.at(size - 1)
+      self.size -= 1
+
+      item_to_remove
+    end
+  end
+
 
   def prepend(value) # adds a new node to the start of the list
     if self.head.nil?
@@ -60,13 +73,17 @@ linked_list.append(Node.new("Bernd"))
 
 # puts linked_list.size
 
-puts linked_list.head
+# puts linked_list.head
 
 # puts linked_list.tail
 
 p linked_list
-puts
-puts linked_list.at(1)
-puts linked_list.at(2)
-puts linked_list.at(3)
 
+# puts linked_list.at(1)
+# puts linked_list.at(2)
+# puts linked_list.at(3)
+
+
+linked_list.pop
+
+p linked_list
