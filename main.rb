@@ -7,6 +7,19 @@ class LinkedList
     @size = 0
   end
 
+  def at(index)
+
+    node_at_index = head
+    i = 1
+
+    until i == index do 
+      node_at_index = node_at_index.next_node
+      i += 1
+    end
+    node_at_index
+
+  end
+
   def prepend(value) # adds a new node to the start of the list
     if self.head.nil?
       self.head = value
@@ -42,17 +55,18 @@ end
 linked_list = LinkedList.new
 
 linked_list.prepend(Node.new("Augustin"))
-
-
 linked_list.prepend(Node.new("007"))
-
-
 linked_list.append(Node.new("Bernd"))
 
-puts linked_list.size
+# puts linked_list.size
 
 puts linked_list.head
 
-puts linked_list.tail
+# puts linked_list.tail
 
 p linked_list
+puts
+puts linked_list.at(1)
+puts linked_list.at(2)
+puts linked_list.at(3)
+
