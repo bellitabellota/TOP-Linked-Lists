@@ -7,6 +7,21 @@ class LinkedList
     @size = 0
   end
 
+  def find(node_value) ###
+    current_node = head
+    i = 0
+
+    until i == size do
+      i += 1
+      if current_node.value == node_value
+        return i
+      else
+        current_node = current_node.next_node
+      end
+    end
+    return nil
+  end
+
   def contains?(node_value)
     value_is_contained = false
     current_node = head
@@ -105,8 +120,13 @@ p linked_list
 
 # linked_list
 
-p linked_list.contains?("007")
-p linked_list.contains?("Augustin")
-p linked_list.contains?("Bernd")
-linked_list.pop
-p linked_list.contains?("Bernd")
+# p linked_list.contains?("007")
+# p linked_list.contains?("Augustin")
+# p linked_list.contains?("Bernd")
+# linked_list.pop
+# p linked_list.contains?("Bernd")
+
+p linked_list.find("007")
+p linked_list.find("Augustin")
+p linked_list.find("Bernd")
+p linked_list.find("Anna")
