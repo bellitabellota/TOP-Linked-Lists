@@ -7,6 +7,20 @@ class LinkedList
     @size = 0
   end
 
+  def to_s
+    current_node = head
+    current_list_to_print = "" 
+    i = 0
+
+    until i == size
+      current_list_to_print += "( #{current_node.value} ) -> "
+      current_node = current_node.next_node
+      i += 1
+    end
+    current_list_to_print += "nil"
+    current_list_to_print
+  end
+
   def find(node_value) ###
     current_node = head
     i = 0
@@ -126,7 +140,9 @@ p linked_list
 # linked_list.pop
 # p linked_list.contains?("Bernd")
 
-p linked_list.find("007")
-p linked_list.find("Augustin")
-p linked_list.find("Bernd")
-p linked_list.find("Anna")
+# p linked_list.find("007")
+# p linked_list.find("Augustin")
+# p linked_list.find("Bernd")
+# p linked_list.find("Anna")
+
+puts linked_list.to_s
